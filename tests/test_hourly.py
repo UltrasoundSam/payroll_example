@@ -34,6 +34,15 @@ def test_rate_property(john_employee):
     assert john_employee.hourly_rate == HOURLY_RATE
 
 
+def test_negative_rate():
+    '''Tests that hourly rate cannot be negative
+    '''
+    with pytest.raises(ValueError):
+        HourlyEmployee(name=HOURLY_NAME,
+                       id=HOURLY_ID,
+                       hourly_rate=-HOURLY_RATE)
+
+
 def test_rate_private(john_employee):
     '''Tests that the hourly rate is a private attribute that cannot be altered
     '''
