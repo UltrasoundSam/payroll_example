@@ -138,7 +138,11 @@ class HourlyEmployee(Employee):
         Returns:
             None
         '''
-        self.__hours_worked += hours
+        # Hours should be strictly positive
+        if hours >= 0:
+            self.__hours_worked += hours
+        else:
+            raise ValueError('Hours should be positive')
 
     def calculate_payroll(self) -> float:
         '''Calculate amount to be paid to to employee at end of month.
