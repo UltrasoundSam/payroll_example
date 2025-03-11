@@ -67,9 +67,9 @@ def test_add_incorrect_hours(john_employee):
                          [(0, 0),
                           (1, HOURLY_RATE),
                           (25.54, 25.54*HOURLY_RATE),
-                          1e-3, 1e-3*HOURLY_RATE])
+                          (1e-3, 1e-3*HOURLY_RATE)])
 def test_calculate_payroll(john_employee, hours, expected):
     '''Makes sure pay is calculated correctly
     '''
     john_employee.add_work(hours)
-    assert john_employee.calculate_payroll == pytest.approx(expected)
+    assert john_employee.calculate_payroll() == pytest.approx(expected)
