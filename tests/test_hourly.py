@@ -19,18 +19,15 @@ HOURLY_ID = uuid.uuid4().int
 
 @pytest.fixture
 def john_employee() -> HourlyEmployee:
-    John = HourlyEmployee(name=HOURLY_NAME,
+    john = HourlyEmployee(name=HOURLY_NAME,
                           id=HOURLY_ID,
                           hourly_rate=HOURLY_RATE)
-    return John
+    return john
 
 
 def test_rate_property(john_employee):
     '''Tests that hourly pay rate is set properly
     '''
-    john_employee = HourlyEmployee(name=HOURLY_NAME,
-                                   id=HOURLY_ID,
-                                   hourly_rate=HOURLY_RATE)
     assert john_employee.hourly_rate == HOURLY_RATE
 
 
@@ -46,10 +43,6 @@ def test_negative_rate():
 def test_rate_private(john_employee):
     '''Tests that the hourly rate is a private attribute that cannot be altered
     '''
-    john_employee = HourlyEmployee(name=HOURLY_NAME,
-                                   id=HOURLY_ID,
-                                   hourly_rate=HOURLY_RATE)
-
     with pytest.raises(AttributeError):
         john_employee.hourly_rate = 50
 
