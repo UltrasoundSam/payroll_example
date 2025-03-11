@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "payroll-example"
-version = "0.1.0"
+version = "0.2.0"
 description = "Allows our company ACME Inc. to calculate the amount of money each employee is owed each month"
 authors = ["Sam Hill <s.hill@yorksj.ac.uk>"]
 readme = "README.md"

@@ -102,6 +102,10 @@ class HourlyEmployee(Employee):
             None
         '''
         super().__init__(name, id)
+
+        if hourly_rate < 0:
+            raise ValueError('Payment rate must be positive')
+
         self.__hourly_rate = hourly_rate
         self.__hours_worked = 0
 
