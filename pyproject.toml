@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "payroll-example"
 version = "0.1.0"
-description = ""
+description = "Allows our company ACME Inc. to calculate the amount of money each employee is owed each month"
 authors = ["Sam Hill <s.hill@yorksj.ac.uk>"]
 readme = "README.md"
 packages = [{include = "payroll_example", from = "src"}]
