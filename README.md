@@ -96,3 +96,5 @@ If you want to contact me you can reach me at <s.hill@yorksj.ac.uk>.
 <!--- If you're not sure which open license to use see https://choosealicense.com/--->
 
 This project uses the following license: [License](./LICENSE).
+
+![Tests](https://github.com/UltrasoundSam/payroll_example/actions/workflows/tests.yaml/badge.svg)
