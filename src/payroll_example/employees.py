@@ -102,6 +102,10 @@ class HourlyEmployee(Employee):
             None
         '''
         super().__init__(name, id)
+
+        if hourly_rate < 0:
+            raise ValueError('Payment rate must be positive')
+
         self.__hourly_rate = hourly_rate
         self.__hours_worked = 0
 
@@ -138,7 +142,11 @@ class HourlyEmployee(Employee):
         Returns:
             None
         '''
-        self.__hours_worked += hours
+        # Hours should be strictly positive
+        if hours >= 0:
+            self.__hours_worked += hours
+        else:
+            raise ValueError('Hours should be positive')
 
     def calculate_payroll(self) -> float:
         '''Calculate amount to be paid to to employee at end of month.
