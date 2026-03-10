@@ -1,21 +1,35 @@
-[tool.poetry]
+[project]
 name = "payroll-example"
 version = "0.2.1"
 description = "Allows our company ACME Inc. to calculate the amount of money each employee is owed each month"
-authors = ["Sam Hill <s.hill@yorksj.ac.uk>"]
+authors = [{ name = "Sam Hill", email = "s.hill@yorksj.ac.uk" }]
+requires-python = ">=3.12,<4"
 readme = "README.md"
-packages = [{include = "payroll_example", from = "src"}]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+]
 
-[tool.poetry.dependencies]
-python = "^3.12"
+[dependency-groups]
+dev = ["pytest>=8.3.5,<9"]
 
+[tool.uv]
+default-groups = "all"
 
-[tool.poetry.group.dev.dependencies]
-pytest = "^8.3.5"
+[tool.hatch.build.targets.sdist]
+include = ["src/payroll_example"]
+
+[tool.hatch.build.targets.wheel]
+include = ["src/payroll_example"]
+
+[tool.hatch.build.targets.wheel.sources]
+"src/payroll_example" = "payroll_example"
 
 [build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
 
 [tool.pytest.ini_options]
 pythonpath = "src"
